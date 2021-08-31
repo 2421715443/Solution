@@ -1,4 +1,4 @@
-package com.zanbo.height_checker;
+package com.zanbo.leetcode.height_checker;
 
 import java.util.Arrays;
 

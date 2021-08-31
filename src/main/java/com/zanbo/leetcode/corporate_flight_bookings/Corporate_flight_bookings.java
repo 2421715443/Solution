@@ -1,6 +1,4 @@
-package com.zanbo.corporate_flight_bookings;
-
-import java.util.Arrays;
+package com.zanbo.leetcode.corporate_flight_bookings;
 
 /**
  * @program: Solution

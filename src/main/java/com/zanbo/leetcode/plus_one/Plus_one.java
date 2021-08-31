@@ -1,4 +1,4 @@
-package com.zanbo.plus_one;
+package com.zanbo.leetcode.plus_one;
 
 /**
  * @program: Solution

@@ -1,4 +1,4 @@
-package com.zanbo.fan_zhuan_lian_biao_lcof;
+package com.zanbo.leetcode.fan_zhuan_lian_biao_lcof;
 
 /**
  * @program: Solution
