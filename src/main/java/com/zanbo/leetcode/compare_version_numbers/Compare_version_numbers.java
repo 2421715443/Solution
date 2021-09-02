@@ -1,4 +1,4 @@
-package com.zanbo.leetcode;
+package com.zanbo.leetcode.compare_version_numbers;
 
 /**
  * @program: Solution
