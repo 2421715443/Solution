@@ -20,7 +20,7 @@ public class Best_time_to_buy_and_sell_stock_ii {
  * 这里就把问题复杂化了，根据题目的意思，当天卖出以后，当天还可以买入，所以其实可以第三天卖出，
  * 第三天买入，第四天又卖出（（5-1）+ （6-5） === 6 - 1）。所以算法可以直接简化为只要今天比昨天大，就卖出。
  */
-class Solution {
+class SolutionBack {
     public int maxProfit(int[] prices) {
         if (prices.length < 1) {
             return 0;
@@ -33,5 +33,18 @@ class Solution {
             }
         }
         return sum;
+    }
+}
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int dp_0 = 0;
+        int dp_1 = Integer.MIN_VALUE;
+        for (int i = 0; i < prices.length; i++) {
+            int temp = dp_0;
+            dp_0 = Math.max(dp_0, dp_1 + prices[i]);
+            dp_1 = Math.max(dp_1, temp - prices[i]);
+        }
+        return dp_0;
     }
 }
