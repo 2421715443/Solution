@@ -54,25 +54,26 @@ class SolutionBack2 {
 
 /**
  * 股票交易带有k(交易次数的dp解法)
+ * 空间复杂度优化策略为将3维dp表降至维，我们可以通过调试观察此3维dp表有第几天交易的冗余空间，将天数消除，进行滚动数组操作
  */
 class Solution {
     public int maxProfit(int[] prices, int k) {
         if (k > prices.length / 2) {
             return maxProfit_int(prices);
         }
-        int[][][] dp = new int[prices.length][k + 1][2];
+        int[][] dp = new int[k + 1][2];
         for (int i = 0; i < prices.length; i++) {
             for (int j = k; j >= 1; j--) {
                 if (i == 0) {
-                    dp[i][j][0] = 0;
-                    dp[i][j][1] = -(prices[i]);
+                    dp[j][0] = 0;
+                    dp[j][1] = -(prices[i]);
                     continue;
                 }
-                dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j][1] + prices[i]);
-                dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j - 1][0] - prices[i]);
+                dp[j][0] = Math.max(dp[j][0], dp[j][1] + prices[i]);
+                dp[j][1] = Math.max(dp[j][1], dp[j - 1][0] - prices[i]);
             }
         }
-        return dp[prices.length - 1][k][0];
+        return dp[k][0];
     }
 
     public int maxProfit_int(int[] prices) {
